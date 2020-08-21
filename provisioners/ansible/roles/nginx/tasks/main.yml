@@ -1,0 +1,13 @@
+- name: install nginx
+  apt: name=nginx state=present
+
+- name: change permission
+  file:
+    path=/etc/nginx
+    recurse=true
+    state=directory
+    owner=ubuntu
+
+- name: start and enable nginx
+  service: name=nginx state=started enabled=yes
+
